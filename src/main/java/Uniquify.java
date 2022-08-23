@@ -291,7 +291,11 @@ public class Uniquify {
         tree.enumerate();
         tree.print();
         System.out.println("Nodes containing: message");
-        for(Node c:new SearchTree(tree).getNodesContaining("message")) {
+        long time_start = System.currentTimeMillis();
+        List<Node> nodes = new SearchTree(tree).getNodesContaining("message");
+        long time_end = System.currentTimeMillis();
+        System.out.println("Elapsed time: " + (time_end - time_start) + " ms");
+        for(Node c: nodes) {
             System.out.println(c.id + ", ");
         }
     }
